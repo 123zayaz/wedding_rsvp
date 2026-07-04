@@ -3,143 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maya & Adam Wedding Invitation</title>
+    <title>Fayaz & Shireen Nikkah Invitation</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero" id="top">
-      <nav class="topbar" aria-label="Invitation sections">
-        <a href="#details">Details</a>
-        <a href="#venue">Venue</a>
-        <a href="#agenda">Agenda</a>
-        <a href="#rsvp">RSVP</a>
-      </nav>
+    <main class="invite-shell">
+      <section class="cover panel" id="top" aria-label="Wedding cover">
+        <nav class="topbar" aria-label="Invitation sections">
+          <a href="#details">Details</a>
+          <a href="#programme">Programme</a>
+          <a href="#rsvp">RSVP</a>
+        </nav>
 
-      <div class="hero__content">
-        <p class="eyebrow">Together with their families</p>
-        <h1>Maya & Adam</h1>
-        <p class="hero__line">request the pleasure of your company</p>
-        <div class="date-card" aria-label="Wedding date">
-          <span>Saturday</span>
-          <strong>20 December 2026</strong>
-          <span>5:00 PM</span>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="section intro" id="details">
-        <div class="section__inner intro__grid">
-          <div>
-            <p class="kicker">Wedding Celebration</p>
-            <h2>Join us as we begin forever.</h2>
+        <div class="cover__content scroll-dynamic">
+          <div class="cover__prayer">
+            <p class="bismillah" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+            <p class="bismillah-translation">In the name of God, the Most Gracious, the Most Merciful</p>
           </div>
-          <p>
-            We would be honoured to celebrate this special day with the people
-            closest to our hearts. An evening of vows, dinner, music, and warm
-            memories awaits.
+          <div class="cover__title">
+            <p class="cover__eyebrow">The Nikkah of</p>
+            <h1 class="cover__names">
+              Fayaz
+              <span>&amp;</span>
+              Shireen
+            </h1>
+          </div>
+          <div class="date-card" aria-label="Wedding date">
+            <span>Sunday</span>
+            <strong>20 December 2026</strong>
+            <span>12:00 PM</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="details panel" id="details">
+        <div class="section__inner invitation-copy reveal">
+          <p class="invitation-line scroll-dynamic">
+            With the blessing of Allah(SWT), we cordially invite you<br />
+            to the wedding ceremony of:
           </p>
-        </div>
-      </section>
 
-      <section class="section venue" id="venue">
-        <div class="section__inner venue__grid">
-          <div class="venue__media" aria-hidden="true"></div>
-          <div class="venue__details">
-            <p class="kicker">Venue</p>
-            <h2>KT Grand Ballroom</h2>
-            <p class="address">
-              KT Grand Ballroom
-            </p>
-            <div class="detail-list">
-              <div>
-                <span>Date</span>
-                <strong>20 December 2026</strong>
-              </div>
-              <div>
-                <span>Time</span>
-                <strong>5:00 PM - 10:30 PM</strong>
-              </div>
-              <div>
-                <span>Dress Code</span>
-                <strong>Formal garden evening</strong>
-              </div>
-            </div>
-            <a
-              class="button button--dark"
-              href="https://maps.app.goo.gl/JVdLf8DL7fYGzaD37"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open Map
-            </a>
+          <div class="couple-details">
+            <h2 class="scroll-dynamic">Mohamed Fayaz</h2>
+            <span class="copy-ampersand scroll-dynamic">&amp;</span>
+            <h2 class="scroll-dynamic">Shireen Shafikah</h2>
           </div>
+
+          <div class="event-details" aria-label="Wedding details">
+            <div class="event-detail scroll-dynamic">
+              <h3>VENUE</h3>
+              <p>HomeTeamNS Khatib</p>
+              <p>2 Yishun Walk,</p>
+              <p>Singapore 767944</p>
+            </div>
+
+            <div class="event-detail scroll-dynamic">
+              <h3>DATE</h3>
+              <p>Sunday, 20th December 2026</p>
+            </div>
+
+            <div class="event-detail scroll-dynamic">
+              <h3>TIME</h3>
+              <p>12:00 PM - 3:30 PM</p>
+            </div>
+          </div>
+
+          <a class="button button--outline save-date-button scroll-dynamic" id="saveDateButton" href="#" download="fayaz-shireen-nikkah.ics">
+            Save The Date
+          </a>
         </div>
       </section>
 
-      <section class="section agenda" id="agenda">
-        <div class="section__inner">
-          <p class="kicker">Agenda</p>
-          <h2>Evening Timeline</h2>
-          <ol class="timeline">
+      <section class="programme panel" id="programme">
+        <div class="programme-card reveal scroll-dynamic">
+          <p class="kicker">Programme</p>
+          <ol class="programme-list">
             <li>
-              <time>5:00 PM</time>
-              <div>
-                <strong>Guest Arrival</strong>
-                <span>Welcome drinks and photographs</span>
-              </div>
+              <strong>Nikkah</strong>
+              <span>12:00 PM</span>
             </li>
             <li>
-              <time>5:45 PM</time>
-              <div>
-                <strong>Ceremony</strong>
-                <span>Exchange of vows</span>
-              </div>
-            </li>
-            <li>
-              <time>6:30 PM</time>
-              <div>
-                <strong>Reception</strong>
-                <span>Dinner service begins</span>
-              </div>
-            </li>
-            <li>
-              <time>8:00 PM</time>
-              <div>
-                <strong>Speeches & Toast</strong>
-                <span>A few words from family and friends</span>
-              </div>
-            </li>
-            <li>
-              <time>8:45 PM</time>
-              <div>
-                <strong>First Dance</strong>
-                <span>Music, dessert, and dancing</span>
-              </div>
-            </li>
-            <li>
-              <time>10:30 PM</time>
-              <div>
-                <strong>Farewell</strong>
-                <span>Final photos and goodbyes</span>
-              </div>
+              <strong>Lunch Reception</strong>
+              <span>12:00 PM - 3:30 PM</span>
             </li>
           </ol>
         </div>
+
+        <div class="blessing-copy reveal scroll-dynamic">
+          <p>With joy in our hearts, we warmly welcome you to share this special day with us.</p>
+          <p lang="ar" dir="rtl">بارَكَ اللَّهُ لَكَ وَبارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+          <p>Bārakallāhu laka wa bāraka ‘alaika wa jama‘a bainakumā fī khayr.</p>
+        </div>
       </section>
 
-      <section class="section rsvp" id="rsvp">
+      <section class="rsvp panel" id="rsvp">
         <div class="section__inner rsvp__grid">
-          <div>
+          <div class="reveal scroll-dynamic">
             <p class="kicker">RSVP</p>
             <h2>Kindly reply by 30 November 2026.</h2>
-            <p>
-              Please let us know whether you can attend, how many guests will
-              join. Thank You!
-            </p>
+            <p>Please let us know whether you can attend and how many guests will join. Thank you.</p>
           </div>
 
-          <form class="rsvp-form" id="rsvpForm">
+          <form class="rsvp-form reveal scroll-dynamic" id="rsvpForm">
             <label>
               Full name
               <input type="text" name="name" autocomplete="name" required />
@@ -167,7 +132,6 @@
               </select>
             </label>
 
-
             <button class="button button--dark" type="submit">Send RSVP</button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
           </form>
@@ -175,10 +139,16 @@
       </section>
     </main>
 
-    <footer class="footer">
-      <a href="#top">Back to top</a>
-      <span>Maya & Adam · 20 December 2026</span>
-    </footer>
+    <nav class="bottom-actions" aria-label="Quick actions">
+      <a id="bottomCalendarButton" href="#" download="fayaz-shireen-nikkah.ics" aria-label="Save to calendar">
+        <span class="icon icon--calendar" aria-hidden="true"></span>
+        <span>Calendar</span>
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=HomeTeamNS%20Khatib%202%20Yishun%20Walk%20Singapore%20767944" target="_blank" rel="noreferrer" aria-label="Open location">
+        <span class="icon icon--pin" aria-hidden="true"></span>
+        <span>Location</span>
+      </a>
+    </nav>
 
     <script src="script.js"></script>
   </body>

@@ -1,10 +1,11 @@
 const RSVP_EMAIL = "your-email@example.com";
 const calendarButton = document.querySelector("#saveDateButton");
+const bottomCalendarButton = document.querySelector("#bottomCalendarButton");
 
 document.body.classList.add("has-motion");
 
-const hero = document.querySelector(".hero");
-const heroContent = document.querySelector(".hero__content");
+const hero = document.querySelector(".cover");
+const heroContent = document.querySelector(".cover__content");
 const revealItems = document.querySelectorAll(".reveal");
 const dynamicItems = document.querySelectorAll(".scroll-dynamic");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -21,9 +22,11 @@ const updateScrollEffects = () => {
   const scrollY = window.scrollY;
   const heroProgress = clamp(scrollY / window.innerHeight, 0, 1);
 
-  hero.style.setProperty("--hero-y", `${50 + heroProgress * 16}%`);
-  heroContent.style.setProperty("--hero-text-y", `${heroProgress * 72}px`);
-  heroContent.style.setProperty("--hero-text-opacity", `${1 - heroProgress * 0.72}`);
+  if (hero && heroContent) {
+    hero.style.setProperty("--hero-y", `${50 + heroProgress * 16}%`);
+    heroContent.style.setProperty("--scroll-shift", `${heroProgress * 34}px`);
+    heroContent.style.setProperty("--scroll-opacity", `${1 - heroProgress * 0.54}`);
+  }
 
   dynamicItems.forEach((item) => {
     const rect = item.getBoundingClientRect();
@@ -72,7 +75,7 @@ window.addEventListener("scroll", requestScrollUpdate, { passive: true });
 window.addEventListener("resize", requestScrollUpdate);
 updateScrollEffects();
 
-if (calendarButton) {
+if (calendarButton || bottomCalendarButton) {
   const calendarEvent = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
@@ -82,41 +85,51 @@ if (calendarButton) {
     "BEGIN:VEVENT",
     "UID:fayaz-shireen-nikkah-20261220@wedding-rsvp.local",
     "DTSTAMP:20260704T000000Z",
-    "DTSTART;TZID=Asia/Singapore:20261220T100000",
-    "DTEND;TZID=Asia/Singapore:20261220T110000",
+    "DTSTART;TZID=Asia/Singapore:20261220T120000",
+    "DTEND;TZID=Asia/Singapore:20261220T153000",
     "SUMMARY:The Nikkah of Fayaz & Shireen",
-    "LOCATION:Masjid Jamae (Chulia)",
+    "LOCATION:HomeTeamNS Khatib, 2 Yishun Walk, Singapore 767944",
     "DESCRIPTION:Wedding ceremony of Mohamed Fayaz and Shireen Shafikah.",
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");
 
   const calendarFile = new Blob([calendarEvent], { type: "text/calendar;charset=utf-8" });
-  calendarButton.href = URL.createObjectURL(calendarFile);
+  const calendarUrl = URL.createObjectURL(calendarFile);
+
+  if (calendarButton) {
+    calendarButton.href = calendarUrl;
+  }
+
+  if (bottomCalendarButton) {
+    bottomCalendarButton.href = calendarUrl;
+  }
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const data = new FormData(form);
-  const name = data.get("name").trim();
-  const attendance = data.get("attendance");
-  const guests = data.get("guests");
-  const notes = data.get("notes").trim() || "No meal notes";
+    const data = new FormData(form);
+    const name = data.get("name").trim();
+    const attendance = data.get("attendance");
+    const guests = data.get("guests");
+    const notes = data.get("notes")?.trim() || "No meal notes";
 
-  const subject = `Wedding RSVP from ${name}`;
-  const body = [
-    `Name: ${name}`,
-    `Attendance: ${attendance}`,
-    `Guests: ${guests}`,
-    `Meal notes: ${notes}`,
-  ].join("\n");
+    const subject = `Wedding RSVP from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Attendance: ${attendance}`,
+      `Guests: ${guests}`,
+      `Meal notes: ${notes}`,
+    ].join("\n");
 
-  localStorage.setItem(
-    "wedding-rsvp",
-    JSON.stringify({ name, attendance, guests, notes, sentAt: new Date().toISOString() }),
-  );
+    localStorage.setItem(
+      "wedding-rsvp",
+      JSON.stringify({ name, attendance, guests, notes, sentAt: new Date().toISOString() }),
+    );
 
-  statusMessage.textContent = "Thank you. Your email app will open with your RSVP ready to send.";
-  window.location.href = `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
+    statusMessage.textContent = "Thank you. Your email app will open with your RSVP ready to send.";
+    window.location.href = `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
