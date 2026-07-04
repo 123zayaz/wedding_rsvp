@@ -183,7 +183,7 @@ a {
 
 .cover__names {
   display: grid;
-  gap: 4px;
+  gap: 25px;
   margin: 0;
   font-family: "Snell Roundhand", "Zapfino", "Brush Script MT", "Segoe Script", cursive;
   font-size: clamp(4.6rem, 18.5vw, 7.2rem);
@@ -267,7 +267,7 @@ a {
   }
 
   .cover__names {
-    gap: 8px;
+    gap: 36px;
     font-size: clamp(4rem, 9vw, 5.5rem);
     line-height: 0.86;
   }
@@ -671,8 +671,10 @@ fieldset {
   }
 
   .cover__content {
-    gap: 42px;
-    margin-top: 118px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 25px;
+    margin-top: 5px;
   }
 
   .details {
@@ -711,31 +713,31 @@ fieldset {
   .cover__content {
     display: grid;
     grid-template-rows: auto auto auto;
-    gap: 44px;
-    margin-top: 50px;
+    gap: 22px;
+    margin-top: 28px;
   }
 
   .cover__prayer {
-    margin-bottom: 50px;
+    margin-bottom: 12px;
   }
 
   .cover__title {
     display: grid;
-    gap: 45px;
+    gap: 18px;
   }
 
   .cover__names {
-    gap: 30px;
+    gap: 34px;
     margin: 0;
-    font-size: clamp(4.6rem, 18vw, 5.35rem);
-    line-height: 0.9;
+    font-size: clamp(4.35rem, 17vw, 5rem);
+    line-height: 0.94;
   }
 
   .date-card {
     justify-self: center;
     width: min(100%, 350px);
-    margin-top: 0;
-    padding: 18px 20px;
+    margin-top: -10px;
+    padding: 14px 20px;
   }
 
   .date-card strong {
