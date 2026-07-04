@@ -642,6 +642,25 @@ fieldset {
   transform: translateY(0);
 }
 
+.has-motion .fade-wording {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 900ms ease, transform 900ms ease;
+}
+
+.has-motion .fade-wording.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cover__title.fade-wording {
+  transition-delay: 160ms;
+}
+
+.date-card.fade-wording {
+  transition-delay: 320ms;
+}
+
 .has-motion .reveal.scroll-dynamic {
   opacity: 0;
   transform: translateY(calc(34px + var(--scroll-shift))) scale(var(--scroll-scale));
