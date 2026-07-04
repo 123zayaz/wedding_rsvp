@@ -1,0 +1,707 @@
+:root {
+  --ink: #211d24;
+  --muted: #6f625c;
+  --paper: #fff8ed;
+  --shell: #f8efe1;
+  --lapis: #163a5f;
+  --turquoise: #1d8a8a;
+  --pomegranate: #9f3d44;
+  --olive: #2e463c;
+  --rose: #b66f6b;
+  --gold: #b88a39;
+  --line: rgba(33, 29, 36, 0.14);
+  --shadow: 0 20px 70px rgba(33, 24, 16, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(90deg, rgba(184, 138, 57, 0.1) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(184, 138, 57, 0.1) 1px, transparent 1px),
+    repeating-conic-gradient(
+      from 45deg,
+      rgba(22, 58, 95, 0.08) 0deg 18deg,
+      rgba(29, 138, 138, 0.08) 18deg 36deg,
+      rgba(159, 61, 68, 0.06) 36deg 54deg,
+      transparent 54deg 72deg
+    ),
+    var(--paper);
+  background-size: 38px 38px, 38px 38px, 152px 152px, auto;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.hero {
+  --hero-y: 50%;
+  min-height: 94svh;
+  display: grid;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  padding: 24px;
+  padding-top: max(24px, env(safe-area-inset-top));
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+  color: #fffaf5;
+  background:
+    linear-gradient(90deg, rgba(8, 24, 42, 0.82), rgba(22, 58, 95, 0.48), rgba(52, 18, 30, 0.72)),
+    linear-gradient(180deg, rgba(29, 138, 138, 0.18), rgba(184, 138, 57, 0.18)),
+    url("assets/wedding-hero.png") center var(--hero-y) / cover;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 22vh;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent, var(--paper));
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 248, 237, 0.08) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(-45deg, rgba(184, 138, 57, 0.1) 0 1px, transparent 1px 28px);
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.topbar {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  width: min(92vw, 520px);
+  padding: 8px;
+  border: 1px solid rgba(255, 250, 245, 0.28);
+  border-radius: 999px;
+  background: rgba(8, 24, 42, 0.54);
+  backdrop-filter: blur(14px);
+}
+
+.topbar a {
+  min-width: 76px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.86rem;
+}
+
+.topbar a:hover {
+  background: rgba(255, 250, 245, 0.16);
+}
+
+.hero__content {
+  --hero-text-y: 0px;
+  --hero-text-opacity: 1;
+  width: min(760px, 100%);
+  margin: 72px auto 0;
+  text-align: center;
+  opacity: var(--hero-text-opacity);
+  transform: translateY(var(--hero-text-y));
+  transition: opacity 120ms linear, transform 120ms linear;
+  will-change: opacity, transform;
+}
+
+.bismillah {
+  margin: 0 0 10px;
+  color: #fff4df;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 4vw, 2.55rem);
+  line-height: 1.4;
+}
+
+.bismillah-translation {
+  max-width: 620px;
+  margin: 0 auto 22px;
+  color: rgba(255, 250, 245, 0.84);
+  font-size: clamp(0.95rem, 2vw, 1.16rem);
+}
+
+.eyebrow,
+.kicker {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #f3d9a7;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1;
+}
+
+h1 {
+  font-size: clamp(4.2rem, 14vw, 10rem);
+}
+
+.couple-names {
+  font-family: "Snell Roundhand", "Zapfino", "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(3.5rem, 11vw, 8.6rem);
+  line-height: 0.9;
+  overflow-wrap: anywhere;
+}
+
+.ampersand {
+  display: inline-block;
+  color: #f3d9a7;
+  font-size: 0.72em;
+  transform: translateY(-0.03em);
+}
+
+h2 {
+  max-width: 760px;
+  font-size: clamp(2.4rem, 6vw, 5.2rem);
+  overflow-wrap: anywhere;
+}
+
+.hero__line {
+  margin: 18px 0 34px;
+  font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+}
+
+.date-card {
+  display: inline-grid;
+  gap: 4px;
+  min-width: min(100%, 420px);
+  padding: 22px 28px;
+  border: 1px solid rgba(255, 250, 245, 0.34);
+  border-radius: 8px;
+  background: rgba(18, 16, 14, 0.42);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(10px);
+}
+
+.date-card strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 5vw, 2.4rem);
+  font-weight: 500;
+}
+
+.scroll-dynamic {
+  --scroll-shift: 0px;
+  --scroll-scale: 1;
+  --scroll-opacity: 1;
+  opacity: var(--scroll-opacity);
+  transform: translateY(var(--scroll-shift)) scale(var(--scroll-scale));
+  transform-origin: center;
+  transition: opacity 120ms linear, transform 120ms linear;
+  will-change: opacity, transform;
+}
+
+.section {
+  padding: clamp(72px, 10vw, 128px) 24px;
+}
+
+.intro {
+  background:
+    linear-gradient(180deg, rgba(255, 248, 237, 0.92), rgba(248, 239, 225, 0.96)),
+    repeating-linear-gradient(45deg, rgba(22, 58, 95, 0.08) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(-45deg, rgba(184, 138, 57, 0.09) 0 1px, transparent 1px 34px);
+}
+
+.section__inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.rsvp__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: clamp(32px, 7vw, 88px);
+  align-items: center;
+}
+
+.rsvp p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.04rem, 2vw, 1.22rem);
+}
+
+.invitation-copy {
+  max-width: 920px;
+  text-align: center;
+}
+
+.intro-bismillah {
+  margin-bottom: 8px;
+  color: var(--lapis);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  line-height: 1.45;
+}
+
+.intro-translation {
+  margin-bottom: 34px;
+  color: var(--turquoise);
+  font-size: clamp(1rem, 2.2vw, 1.28rem);
+}
+
+.invitation-copy p,
+.blessing-copy p {
+  margin: 0 auto 28px;
+  color: #8b6840;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 3.8vw, 2.5rem);
+  line-height: 1.55;
+}
+
+.invitation-copy h2 {
+  max-width: none;
+  color: var(--lapis);
+  font-size: clamp(2.45rem, 7vw, 5rem);
+}
+
+.copy-ampersand {
+  display: block;
+  margin: 16px 0 12px;
+  color: var(--pomegranate);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.has-motion .reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  will-change: opacity, transform;
+}
+
+.has-motion .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.has-motion .reveal.scroll-dynamic {
+  opacity: 0;
+  transform: translateY(calc(34px + var(--scroll-shift))) scale(var(--scroll-scale));
+}
+
+.has-motion .reveal.scroll-dynamic.is-visible {
+  opacity: var(--scroll-opacity);
+  transform: translateY(var(--scroll-shift)) scale(var(--scroll-scale));
+}
+
+.event-details {
+  display: grid;
+  gap: clamp(32px, 6vw, 54px);
+  width: min(680px, 100%);
+  margin: clamp(58px, 9vw, 92px) auto 30px;
+  text-align: center;
+}
+
+.event-detail h3 {
+  margin: 0 0 8px;
+  color: var(--pomegranate);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 3.8vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.event-detail p {
+  margin: 0;
+  color: #8b6840;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.18rem, 3.4vw, 1.82rem);
+  line-height: 1.72;
+}
+
+.save-date-button {
+  margin-top: 8px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button--dark {
+  background: var(--olive);
+  color: #fffaf5;
+}
+
+.button--dark:hover {
+  background: #2e3929;
+}
+
+.button--outline {
+  border: 2px solid var(--pomegranate);
+  background: transparent;
+  color: var(--pomegranate);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 3vw, 1.45rem);
+  font-weight: 500;
+}
+
+.button--outline:hover {
+  background: rgba(159, 61, 68, 0.08);
+}
+
+.agenda {
+  background:
+    linear-gradient(180deg, rgba(248, 239, 225, 0.94), rgba(255, 248, 237, 0.97)),
+    repeating-conic-gradient(
+      from 45deg,
+      rgba(22, 58, 95, 0.12) 0deg 18deg,
+      rgba(29, 138, 138, 0.11) 18deg 36deg,
+      rgba(184, 138, 57, 0.1) 36deg 54deg,
+      transparent 54deg 72deg
+    );
+  background-size: auto, 124px 124px;
+}
+
+.programme-card {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: clamp(38px, 7vw, 72px) clamp(24px, 6vw, 64px);
+  border: 1px solid rgba(184, 138, 57, 0.28);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 237, 0.9), rgba(255, 255, 255, 0.78)),
+    repeating-linear-gradient(90deg, rgba(29, 138, 138, 0.08) 0 1px, transparent 1px 24px);
+  box-shadow: 0 18px 58px rgba(22, 58, 95, 0.14);
+  text-align: center;
+}
+
+.programme-card .kicker {
+  margin-bottom: 34px;
+  color: var(--pomegranate);
+}
+
+.programme-list {
+  display: grid;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.programme-list strong,
+.programme-list span {
+  display: block;
+  color: var(--lapis);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.programme-list strong {
+  font-size: clamp(2.05rem, 6vw, 3.25rem);
+  font-weight: 500;
+}
+
+.programme-list span {
+  margin-top: 8px;
+  font-size: clamp(1.35rem, 4vw, 2.25rem);
+}
+
+.blessing-copy {
+  max-width: 1000px;
+  margin: clamp(54px, 8vw, 96px) auto 0;
+  text-align: center;
+}
+
+.blessing-copy p {
+  margin-bottom: 34px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 650;
+}
+
+.rsvp {
+  background:
+    linear-gradient(135deg, rgba(8, 24, 42, 0.95), rgba(22, 58, 95, 0.94) 46%, rgba(46, 70, 60, 0.96)),
+    repeating-linear-gradient(45deg, rgba(255, 248, 237, 0.08) 0 1px, transparent 1px 30px),
+    repeating-linear-gradient(-45deg, rgba(184, 138, 57, 0.1) 0 1px, transparent 1px 30px);
+  color: #fffaf5;
+}
+
+.rsvp .kicker {
+  color: #f1ce8d;
+}
+
+.rsvp p {
+  color: rgba(255, 250, 245, 0.78);
+}
+
+.rsvp-form {
+  display: grid;
+  gap: 18px;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid rgba(255, 250, 245, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 250, 245, 0.08);
+}
+
+label,
+legend {
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 250, 245, 0.26);
+  border-radius: 8px;
+  padding: 13px 14px;
+  background: rgba(255, 250, 245, 0.94);
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 650;
+}
+
+.choice input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.form-status {
+  min-height: 1.5em;
+  margin: 0;
+  color: #f1ce8d;
+  font-weight: 800;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 24px;
+  background: #1e241b;
+  color: rgba(255, 250, 245, 0.74);
+}
+
+.footer a {
+  color: #fffaf5;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 92svh;
+    padding: 18px;
+  }
+
+  .topbar {
+    top: 12px;
+    border-radius: 8px;
+  }
+
+  .topbar a {
+    min-width: 68px;
+    padding: 7px 9px;
+  }
+
+  .hero__content {
+    margin-top: 96px;
+  }
+
+  .couple-names {
+    font-size: clamp(3.9rem, 17vw, 6.8rem);
+  }
+
+  .ampersand {
+    margin: -0.08em 0;
+  }
+
+  .rsvp__grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (min-width: 390px) and (max-width: 460px) and (min-height: 800px) {
+  .hero {
+    min-height: 100svh;
+    align-items: start;
+    padding: max(18px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
+  }
+
+  .topbar {
+    top: max(12px, env(safe-area-inset-top));
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(398px, calc(100vw - 28px));
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .topbar a {
+    min-width: 0;
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 390px);
+    gap: clamp(34px, 6svh, 58px);
+    margin-top: 118px;
+  }
+
+  .bismillah {
+    margin-bottom: 8px;
+    font-size: clamp(1.28rem, 6vw, 1.75rem);
+    line-height: 1.35;
+  }
+
+  .bismillah-translation {
+    max-width: 350px;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .eyebrow {
+    margin-bottom: 10px;
+    font-size: 0.72rem;
+  }
+
+  .couple-names {
+    font-size: clamp(4.15rem, 18vw, 4.85rem);
+    line-height: 0.84;
+  }
+
+  .date-card {
+    min-width: min(100%, 350px);
+    margin-top: 5px;
+    padding: 17px 20px;
+  }
+
+  .date-card strong {
+    font-size: clamp(1.42rem, 6vw, 1.72rem);
+  }
+
+  .section {
+    padding: 72px 20px;
+  }
+
+  .intro {
+    min-height: 100svh;
+    display: grid;
+    align-items: center;
+    padding-block: clamp(56px, 7svh, 74px);
+  }
+
+  .invitation-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100svh - 140px);
+  }
+
+  .invitation-copy > .scroll-dynamic:first-child {
+    margin-bottom: clamp(34px, 5.5svh, 50px);
+  }
+
+  .copy-ampersand {
+    margin: 12px 0 10px;
+  }
+
+  .event-details {
+    gap: clamp(22px, 4.5svh, 36px);
+    margin: clamp(36px, 6svh, 54px) auto clamp(24px, 4svh, 36px);
+  }
+
+  .event-detail h3 {
+    margin-bottom: 6px;
+    font-size: clamp(1.22rem, 5vw, 1.52rem);
+  }
+
+  .event-detail p {
+    font-size: clamp(1.05rem, 4.4vw, 1.34rem);
+    line-height: 1.55;
+  }
+
+  h2 {
+    font-size: clamp(2.15rem, 10vw, 3.1rem);
+  }
+
+  .invitation-copy h2.scroll-dynamic {
+    font-size: clamp(2.55rem, 11vw, 3.45rem);
+  }
+
+  .footer {
+    padding-bottom: max(22px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero__content,
+  .has-motion .reveal,
+  .scroll-dynamic,
+  .has-motion .reveal.scroll-dynamic,
+  .has-motion .reveal.scroll-dynamic.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

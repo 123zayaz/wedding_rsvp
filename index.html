@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maya & Adam Wedding Invitation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="topbar" aria-label="Invitation sections">
+        <a href="#details">Details</a>
+        <a href="#venue">Venue</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+
+      <div class="hero__content">
+        <p class="eyebrow">Together with their families</p>
+        <h1>Maya & Adam</h1>
+        <p class="hero__line">request the pleasure of your company</p>
+        <div class="date-card" aria-label="Wedding date">
+          <span>Saturday</span>
+          <strong>20 December 2026</strong>
+          <span>5:00 PM</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section intro" id="details">
+        <div class="section__inner intro__grid">
+          <div>
+            <p class="kicker">Wedding Celebration</p>
+            <h2>Join us as we begin forever.</h2>
+          </div>
+          <p>
+            We would be honoured to celebrate this special day with the people
+            closest to our hearts. An evening of vows, dinner, music, and warm
+            memories awaits.
+          </p>
+        </div>
+      </section>
+
+      <section class="section venue" id="venue">
+        <div class="section__inner venue__grid">
+          <div class="venue__media" aria-hidden="true"></div>
+          <div class="venue__details">
+            <p class="kicker">Venue</p>
+            <h2>KT Grand Ballroom</h2>
+            <p class="address">
+              KT Grand Ballroom
+            </p>
+            <div class="detail-list">
+              <div>
+                <span>Date</span>
+                <strong>20 December 2026</strong>
+              </div>
+              <div>
+                <span>Time</span>
+                <strong>5:00 PM - 10:30 PM</strong>
+              </div>
+              <div>
+                <span>Dress Code</span>
+                <strong>Formal garden evening</strong>
+              </div>
+            </div>
+            <a
+              class="button button--dark"
+              href="https://maps.app.goo.gl/JVdLf8DL7fYGzaD37"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Map
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section agenda" id="agenda">
+        <div class="section__inner">
+          <p class="kicker">Agenda</p>
+          <h2>Evening Timeline</h2>
+          <ol class="timeline">
+            <li>
+              <time>5:00 PM</time>
+              <div>
+                <strong>Guest Arrival</strong>
+                <span>Welcome drinks and photographs</span>
+              </div>
+            </li>
+            <li>
+              <time>5:45 PM</time>
+              <div>
+                <strong>Ceremony</strong>
+                <span>Exchange of vows</span>
+              </div>
+            </li>
+            <li>
+              <time>6:30 PM</time>
+              <div>
+                <strong>Reception</strong>
+                <span>Dinner service begins</span>
+              </div>
+            </li>
+            <li>
+              <time>8:00 PM</time>
+              <div>
+                <strong>Speeches & Toast</strong>
+                <span>A few words from family and friends</span>
+              </div>
+            </li>
+            <li>
+              <time>8:45 PM</time>
+              <div>
+                <strong>First Dance</strong>
+                <span>Music, dessert, and dancing</span>
+              </div>
+            </li>
+            <li>
+              <time>10:30 PM</time>
+              <div>
+                <strong>Farewell</strong>
+                <span>Final photos and goodbyes</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section rsvp" id="rsvp">
+        <div class="section__inner rsvp__grid">
+          <div>
+            <p class="kicker">RSVP</p>
+            <h2>Kindly reply by 30 November 2026.</h2>
+            <p>
+              Please let us know whether you can attend, how many guests will
+              join. Thank You!
+            </p>
+          </div>
+
+          <form class="rsvp-form" id="rsvpForm">
+            <label>
+              Full name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+
+            <fieldset>
+              <legend>Will you attend?</legend>
+              <label class="choice">
+                <input type="radio" name="attendance" value="Joyfully attending" required />
+                <span>Attending</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="attendance" value="Unable to attend" />
+                <span>Unable to attend</span>
+              </label>
+            </fieldset>
+
+            <label>
+              Number of guests
+              <select name="guests" required>
+                <option value="1">1 guest</option>
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+              </select>
+            </label>
+
+
+            <button class="button button--dark" type="submit">Send RSVP</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="#top">Back to top</a>
+      <span>Maya & Adam · 20 December 2026</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
